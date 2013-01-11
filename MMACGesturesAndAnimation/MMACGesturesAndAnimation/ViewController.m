@@ -7,15 +7,37 @@
 //
 
 #import "ViewController.h"
+#import "SecondViewController.h"
 
 @interface ViewController ()
+{
+    SecondViewController* secondViewController;
+}
 
 -(IBAction)changeColorLeft:(id)sender;
 -(IBAction)changeColorRight:(id)sender;
+-(IBAction)showViewUp:(id)sender;
+-(IBAction)showViewDown:(id)sender;
 
 @end
 
+
 @implementation ViewController
+
+
+-(IBAction)showViewUp:(id)sender
+{
+    [UIView animateWithDuration:1.0f animations:^(){
+        secondViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y - 100);
+    }];
+}
+
+-(IBAction)showViewDown:(id)sender;
+{
+    [UIView animateWithDuration:1.0f animations:^(){
+        secondViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + 100);
+    }];
+}
 
 -(IBAction)changeColorRight:(id)sender
 {
@@ -31,6 +53,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    secondViewController = [[SecondViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [self.view addSubview:secondViewController.view];
+    secondViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + 300);
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
