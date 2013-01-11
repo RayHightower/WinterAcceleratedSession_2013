@@ -20,6 +20,7 @@
 		93DEBCC4169FAAAA00A48B64 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DEBCC2169FAAAA00A48B64 /* ViewController.xib */; };
 		93DEBCCD169FAFE500A48B64 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DEBCCB169FAFE500A48B64 /* SecondViewController.m */; };
 		93DEBCCE169FAFE500A48B64 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93DEBCCC169FAFE500A48B64 /* SecondViewController.xib */; };
+		93DEBCD2169FB72700A48B64 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DEBCD1169FB72600A48B64 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		93DEBCCA169FAFE500A48B64 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		93DEBCCB169FAFE500A48B64 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		93DEBCCC169FAFE500A48B64 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		93DEBCD1169FB72600A48B64 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DEBCD2169FB72700A48B64 /* QuartzCore.framework in Frameworks */,
 				93DEBCA8169FAAAA00A48B64 /* UIKit.framework in Frameworks */,
 				93DEBCAA169FAAAA00A48B64 /* Foundation.framework in Frameworks */,
 				93DEBCAC169FAAAA00A48B64 /* CoreGraphics.framework in Frameworks */,
@@ -78,6 +81,7 @@
 		93DEBCA6169FAAAA00A48B64 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93DEBCD1169FB72600A48B64 /* QuartzCore.framework */,
 				93DEBCA7169FAAAA00A48B64 /* UIKit.framework */,
 				93DEBCA9169FAAAA00A48B64 /* Foundation.framework */,
 				93DEBCAB169FAAAA00A48B64 /* CoreGraphics.framework */,

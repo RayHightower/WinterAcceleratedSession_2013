@@ -8,14 +8,18 @@
 
 #import "ViewController.h"
 #import "SecondViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController ()
 {
+    IBOutlet UIView* rotatinView;
+    
     SecondViewController* secondViewController;
 }
 
 -(IBAction)changeColorLeft:(id)sender;
 -(IBAction)changeColorRight:(id)sender;
+-(IBAction)rotate:(id)sender;
 -(IBAction)showViewUp:(id)sender;
 -(IBAction)showViewDown:(id)sender;
 
@@ -23,6 +27,15 @@
 
 
 @implementation ViewController
+
+-(IBAction)rotate:(id)sender
+{
+    CABasicAnimation* spinAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    
+    spinAnimation.toValue = [NSNumber numberWithFloat:5*2*M_PI];
+    [rotatinView.layer addAnimation:spinAnimation forKey:@"spinAnimation"];
+}
+
 
 
 -(IBAction)showViewUp:(id)sender
