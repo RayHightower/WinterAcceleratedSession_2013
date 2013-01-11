@@ -8,6 +8,14 @@
 
 #import "ViewController.h"
 
+
+
+NSInteger add(int intOne, int intTwo)
+{
+    return intOne + intTwo;
+}
+
+
 @interface ViewController ()
 {
     IBOutlet UITextField* textFieldOne;
@@ -18,12 +26,12 @@
 -(IBAction)addNumbers:(id)sender;
 @end
 
-@implementation ViewController
 
+@implementation ViewController
 
 -(IBAction)addNumbers:(id)sender
 {
-    int tmpInt = textFieldOne.text.intValue + textFieldTwo.text.intValue;
+    int tmpInt = add(textFieldOne.text.intValue, textFieldTwo.text.intValue);
 
     myLabel.text = [NSString stringWithFormat:@"%i", tmpInt];
 }
