@@ -26,7 +26,7 @@
 
 
 
-typedef NSInteger (^addType)(NSInteger, NSInteger);
+//typedef NSInteger (^addType)(NSInteger, NSInteger);
 
 @implementation ViewController
 
@@ -34,14 +34,18 @@ typedef NSInteger (^addType)(NSInteger, NSInteger);
 {
     //int tmpInt = add(textFieldOne.text.intValue, textFieldTwo.text.intValue);
 
-    [self addTheNumbers:textFieldOne.text.intValue andNumber:textFieldTwo.text.intValue usingBlock:^(NSInteger intOne, NSInteger intTwo)
-    {
-        return intOne + intTwo;
-    }];
+    [self addTheNumber:textFieldOne.text.intValue
+             andNumber:textFieldTwo.text.intValue
+            usingBlock:^(NSInteger intOne, NSInteger intTwo)
+                {
+                    return intOne + intTwo;
+                }];
     //myLabel.text = [NSString stringWithFormat:@"%i", tmpInt];
 }
 
--(void)addTheNumbers:(NSInteger)intOne andNumber:(NSInteger)intTwo usingBlock:(addType)addBlock
+-(void)addTheNumber:(NSInteger)intOne
+          andNumber:(NSInteger)intTwo
+         usingBlock:( NSInteger (^) (NSInteger, NSInteger))addBlock
 {
     myLabel.text = [NSString stringWithFormat:@"%i", addBlock(intOne, intTwo)];
 }
