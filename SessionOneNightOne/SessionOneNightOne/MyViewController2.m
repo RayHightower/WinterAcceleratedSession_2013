@@ -29,6 +29,10 @@
     return self;
 }
 
+-(void)passThis:(int)thisInt
+{
+    
+}
 
 -(IBAction)close:(id)sender
 {
