@@ -8,12 +8,10 @@
 
 #import "ViewController.h"
 
-
-
-NSInteger add(int intOne, int intTwo)
-{
-    return intOne + intTwo;
-}
+//NSInteger (^add)(NSInteger, NSInteger) = ^(NSInteger intOne, NSInteger intTwo)
+//{
+//    return intOne + intTwo;
+//};
 
 
 @interface ViewController ()
@@ -27,13 +25,25 @@ NSInteger add(int intOne, int intTwo)
 @end
 
 
+
+typedef NSInteger (^addType)(NSInteger, NSInteger);
+
 @implementation ViewController
 
 -(IBAction)addNumbers:(id)sender
 {
-    int tmpInt = add(textFieldOne.text.intValue, textFieldTwo.text.intValue);
+    //int tmpInt = add(textFieldOne.text.intValue, textFieldTwo.text.intValue);
 
-    myLabel.text = [NSString stringWithFormat:@"%i", tmpInt];
+    [self addTheNumbers:textFieldOne.text.intValue andNumber:textFieldTwo.text.intValue usingBlock:^(NSInteger intOne, NSInteger intTwo)
+    {
+        return intOne + intTwo;
+    }];
+    //myLabel.text = [NSString stringWithFormat:@"%i", tmpInt];
+}
+
+-(void)addTheNumbers:(NSInteger)intOne andNumber:(NSInteger)intTwo usingBlock:(addType)addBlock
+{
+    myLabel.text = [NSString stringWithFormat:@"%i", addBlock(intOne, intTwo)];
 }
 
 - (void)viewDidLoad
