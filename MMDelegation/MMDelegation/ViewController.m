@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 {
+    IBOutlet UIWebView* webView;
+    IBOutlet UIActivityIndicatorView* activityView;
     SecondViewController* secondViewController;
 }
 @end
@@ -20,12 +22,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    secondViewController = [[SecondViewController alloc] initWithNibName:nil bundle:nil];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.pepsi.com"]]];
+    webView.delegate = self;
+    //secondViewController = [[SecondViewController alloc] initWithNibName:nil bundle:nil];
     
-    secondViewController.delegate = self;
+    //secondViewController.delegate = self;
     
-    [self.view addSubview:secondViewController.view];
-    secondViewController.view.center = CGPointMake(secondViewController.view.center.x + 100, secondViewController.view.center.y);
+    ///[self.view addSubview:secondViewController.view];
+    //secondViewController.view.center = CGPointMake/(secondViewController.view.center.x + 100, secondViewController.view.center.y);
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,6 +43,13 @@
 -(void)changeColor
 {
     self.view.backgroundColor = [UIColor blueColor];
+}
+
+#pragma mark UIWebViewDelegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [activityView stopAnimating];
 }
 @end
 

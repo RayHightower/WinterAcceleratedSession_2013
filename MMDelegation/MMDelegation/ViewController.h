@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ColorChangeDelegate.h"
 
-@interface ViewController : UIViewController <ColorChangeDelegate>
+@interface ViewController : UIViewController <ColorChangeDelegate, UIWebViewDelegate>
 
 @end
