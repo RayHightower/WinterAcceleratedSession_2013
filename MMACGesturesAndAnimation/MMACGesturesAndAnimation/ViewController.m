@@ -22,6 +22,7 @@
 -(IBAction)rotate:(id)sender;
 -(IBAction)showViewUp:(id)sender;
 -(IBAction)showViewDown:(id)sender;
+- (IBAction)changeColor:(id)sender;
 
 @end
 
@@ -50,6 +51,9 @@
     [UIView animateWithDuration:1.0f animations:^(){
         secondViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + 100);
     }];
+}
+
+- (IBAction)changeColor:(id)sender {
 }
 
 -(IBAction)changeColorRight:(id)sender
