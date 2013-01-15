@@ -22,6 +22,8 @@
     [super viewDidLoad];
     secondViewController = [[SecondViewController alloc] initWithNibName:nil bundle:nil];
     
+    secondViewController.delegate = self;
+    
     [self.view addSubview:secondViewController.view];
     secondViewController.view.center = CGPointMake(secondViewController.view.center.x + 100, secondViewController.view.center.y);
 }
@@ -32,4 +34,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark ColorChageDelegate
+
+-(void)changeColor
+{
+    self.view.backgroundColor = [UIColor blueColor];
+}
 @end
+
+
+
+

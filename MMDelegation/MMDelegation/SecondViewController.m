@@ -14,6 +14,8 @@
 
 @implementation SecondViewController
 
+@synthesize delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,6 +38,9 @@
 }
 
 - (IBAction)changeColor:(id)sender {
-    NSLog(@"changeColor");
+    [self.delegate changeColor];
 }
 @end
+
+
+

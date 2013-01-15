@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorChangeDelegate.h"
 
 @interface SecondViewController : UIViewController
-
+@property(nonatomic, retain)id<ColorChangeDelegate> delegate;
 @end

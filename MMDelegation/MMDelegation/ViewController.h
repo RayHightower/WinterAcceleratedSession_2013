@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorChangeDelegate.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <ColorChangeDelegate>
 
 @end
