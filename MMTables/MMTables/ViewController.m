@@ -11,6 +11,7 @@
 @interface ViewController ()
 {
     NSArray* things;
+    IBOutlet UITableView* myTableView;
 }
 @end
 
@@ -18,9 +19,28 @@
 
 - (void)viewDidLoad
 {
+    //[super viewDidLoad];
+    
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilemakers.co/api/members.json"]];
+    
     [super viewDidLoad];
-    things = @[@"first", @"second", @"third", @"whatever", @"fouth", @"fifth", @"sixth"];
+    
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:[[NSOperationQueue alloc] init]
+                           completionHandler:
+     ^(NSURLResponse* response, NSData* data, NSError* error)
+     {
+         things = (NSArray*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+         [things retain];
+         
+         [myTableView reloadData];
+     }];
+
+    /*//things = @[@"first", @"second", @"third", @"whatever", @"fouth", @"fifth", @"sixth"];
+    things = [NSArray arrayWithObjects:@"first", @"second", @"third", @"whatever", @"fouth", @"fifth", @"sixth", nil];
+    [things retain];
     NSLog(@"things = %@", things);
+     */
 }
 
 - (void)didReceiveMemoryWarning
