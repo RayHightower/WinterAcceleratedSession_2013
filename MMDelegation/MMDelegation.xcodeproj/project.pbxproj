@@ -42,7 +42,7 @@
 		939B050416A4CE6400768FC5 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		939B050516A4CE6400768FC5 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		939B050616A4CE6400768FC5 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
-		939B051116A4DD3100768FC5 /* ColorChangeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorChangeDelegate.h; sourceTree = "<group>"; };
+		939B051216A4E14D00768FC5 /* ColorChangeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorChangeDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,6 @@
 		939B04D216A4CDE800768FC5 = {
 			isa = PBXGroup;
 			children = (
-				939B051116A4DD3100768FC5 /* ColorChangeDelegate.h */,
 				939B04E716A4CDE800768FC5 /* MMDelegation */,
 				939B04E016A4CDE800768FC5 /* Frameworks */,
 				939B04DE16A4CDE800768FC5 /* Products */,
@@ -90,6 +89,7 @@
 		939B04E716A4CDE800768FC5 /* MMDelegation */ = {
 			isa = PBXGroup;
 			children = (
+				939B051216A4E14D00768FC5 /* ColorChangeDelegate.h */,
 				939B04F016A4CDE800768FC5 /* AppDelegate.h */,
 				939B04F116A4CDE800768FC5 /* AppDelegate.m */,
 				939B04F916A4CDE800768FC5 /* ViewController.h */,
