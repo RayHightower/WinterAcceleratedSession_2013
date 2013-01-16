@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest
-                                       queue:[[NSOperationQueue alloc] init]
+                                       queue:[NSOperationQueue currentQueue]
                            completionHandler:
      ^(NSURLResponse* response, NSData* data, NSError* error)
      {
@@ -35,7 +35,9 @@
          
          [myTableView reloadData];
      }];
+    NSLog(@"things = %@", things);
 
+    
     /*//things = @[@"first", @"second", @"third", @"whatever", @"fouth", @"fifth", @"sixth"];
     things = [NSArray arrayWithObjects:@"first", @"second", @"third", @"whatever", @"fouth", @"fifth", @"sixth", nil];
     [things retain];
@@ -72,7 +74,8 @@
         NSLog(@"we are resuing!!!!");
     }
     
-    tableViewCell.textLabel.text = [things objectAtIndex:indexPath.row];
+    
+    tableViewCell.textLabel.text = [((NSDictionary*)[things objectAtIndex:indexPath.row]) valueForKey:@"name"];
     return tableViewCell;
 }
 
