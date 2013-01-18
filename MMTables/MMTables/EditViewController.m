@@ -29,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    nameTextField.text = self.person.name;
+    emailTextField.text = self.person.email;
 }
 
 - (IBAction)save:(id)sender

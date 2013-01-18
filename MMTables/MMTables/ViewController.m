@@ -39,8 +39,7 @@
          
          things = (NSArray*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
          [things retain];
-         
-         
+                  
          for (NSDictionary* dict in things) {
              person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
              
@@ -70,6 +69,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark UITableViewDelegate
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%@", [things objectAtIndex:indexPath.row]);
 }
 
 #pragma mark UITableViewDataSouce

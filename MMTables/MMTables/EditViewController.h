@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Person.h"
 
 @interface EditViewController : UIViewController
-
+@property(retain, nonatomic)Person* person;
 @end
