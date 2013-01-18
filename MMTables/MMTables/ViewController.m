@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "Person.h"
+#import <CoreData/CoreData.h>
+#import "AppDelegate.h"
 
 @interface ViewController ()
 {
@@ -30,8 +33,26 @@
                            completionHandler:
      ^(NSURLResponse* response, NSData* data, NSError* error)
      {
+         Person* person;
+         NSError* sqlError;
+         NSManagedObjectContext* context = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+         
          things = (NSArray*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
          [things retain];
+         
+         
+         for (NSDictionary* dict in things) {
+             person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
+             
+             person.name = [dict valueForKey:@"name"];
+             person.email = [dict valueForKey:@"email"];
+             
+             if ([context save:&sqlError]) {
+                 NSLog(@"Failed!");
+             }
+         }
+         
+         
          
          [myTableView reloadData];
      }];

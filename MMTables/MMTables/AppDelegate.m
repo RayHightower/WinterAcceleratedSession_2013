@@ -12,6 +12,8 @@
 
 @implementation AppDelegate
 
+@synthesize managedObjectContext = m_managedObjectContext;
+
 - (void)dealloc
 {
     [_window release];
@@ -61,11 +63,14 @@
 -(void)__initCoreData
 {
     NSURL* documentsDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL* modelURL = [[NSBundle mainBundle] URLForResource:@"Content" withExtension:@"momd"];
+    NSURL* modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
     NSURL* sqliteURL = [documentsDirectoryURL URLByAppendingPathComponent:@"Model.sqlite"];
     NSError* error;
     
+    
     m_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    
+      
     m_persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:m_managedObjectModel];
     
   
