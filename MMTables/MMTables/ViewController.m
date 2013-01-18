@@ -10,11 +10,14 @@
 #import "Person.h"
 #import <CoreData/CoreData.h>
 #import "AppDelegate.h"
+#import "EditViewController.h"
 
 @interface ViewController ()
 {
     NSArray* things;
+    NSMutableArray* people;
     IBOutlet UITableView* myTableView;
+    EditViewController* editViewController;
 }
 @end
 
@@ -28,6 +31,7 @@
     
     [super viewDidLoad];
     
+
     [NSURLConnection sendAsynchronousRequest:urlRequest
                                        queue:[NSOperationQueue currentQueue]
                            completionHandler:
@@ -39,12 +43,16 @@
          
          things = (NSArray*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
          [things retain];
-                  
+         
+         people = [NSMutableArray arrayWithCapacity:[things count]];
+         [people retain];
+         
          for (NSDictionary* dict in things) {
              person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
              
              person.name = [dict valueForKey:@"name"];
              person.email = [dict valueForKey:@"email"];
+             [people addObject:person];
              
              if (![context save:&sqlError]) {
                  NSLog(@"Failed!");
@@ -76,6 +84,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    editViewController = [[EditViewController alloc] initWithNibName:nil bundle:nil];
+    editViewController.person = (Person*)[people objectAtIndex:indexPath.row];
+    
+    [self.view addSubview:editViewController.view];
     NSLog(@"%@", [things objectAtIndex:indexPath.row]);
 }
 
