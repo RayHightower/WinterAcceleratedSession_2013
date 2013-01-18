@@ -47,7 +47,7 @@
              person.name = [dict valueForKey:@"name"];
              person.email = [dict valueForKey:@"email"];
              
-             if ([context save:&sqlError]) {
+             if (![context save:&sqlError]) {
                  NSLog(@"Failed!");
              }
          }
