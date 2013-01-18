@@ -11,7 +11,12 @@
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+    NSManagedObjectModel*   m_managedObjectModel;
+    NSPersistentStoreCoordinator* m_persistentStoreCoordinator;
+    NSManagedObjectContext* m_managedObjectContext;
+    
+}
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) ViewController *viewController;

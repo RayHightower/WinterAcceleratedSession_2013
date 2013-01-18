@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
 #import "ViewController.h"
+#import <CoreData/CoreData.h>
 
 @implementation AppDelegate
 
@@ -26,6 +26,8 @@
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [self __initCoreData];
     return YES;
 }
 
@@ -54,6 +56,24 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)__initCoreData
+{
+    NSURL* documentsDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    NSURL* modelURL = [[NSBundle mainBundle] URLForResource:@"Content" withExtension:@"momd"];
+    NSURL* sqliteURL = [documentsDirectoryURL URLByAppendingPathComponent:@"Model.sqlite"];
+    NSError* error;
+    
+    m_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    m_persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:m_managedObjectModel];
+    
+  
+    if ([m_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:sqliteURL options:nil error:&error])
+    {
+        m_managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [m_managedObjectContext setPersistentStoreCoordinator:m_persistentStoreCoordinator];
+    }
 }
 
 @end
