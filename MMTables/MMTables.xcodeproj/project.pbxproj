@@ -18,6 +18,10 @@
 		939B053916A4EF3B00768FC5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 939B053816A4EF3B00768FC5 /* Default-568h@2x.png */; };
 		939B053C16A4EF3B00768FC5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 939B053B16A4EF3B00768FC5 /* ViewController.m */; };
 		939B053F16A4EF3B00768FC5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 939B053D16A4EF3B00768FC5 /* ViewController.xib */; };
+		93C83CF016A84BEE001C5CD6 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C83CEE16A84BEE001C5CD6 /* EditViewController.m */; };
+		93C83CF116A84BEE001C5CD6 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93C83CEF16A84BEE001C5CD6 /* EditViewController.xib */; };
+		93C83CFD16A8CC8A001C5CD6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 93C83CFB16A8CC8A001C5CD6 /* Model.xcdatamodeld */; };
+		93C83D0616A8CDD6001C5CD6 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C83D0516A8CDD6001C5CD6 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,12 @@
 		939B053A16A4EF3B00768FC5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		939B053B16A4EF3B00768FC5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		939B053E16A4EF3B00768FC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		93C83CED16A84BEE001C5CD6 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		93C83CEE16A84BEE001C5CD6 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		93C83CEF16A84BEE001C5CD6 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		93C83CFC16A8CC8A001C5CD6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		93C83D0416A8CDD6001C5CD6 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		93C83D0516A8CDD6001C5CD6 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				939B052816A4EF3B00768FC5 /* MMTables */,
+				939B052916A4EF3B00768FC5 /* Supporting Files */,
 				939B052116A4EF3B00768FC5 /* Frameworks */,
 				939B051F16A4EF3B00768FC5 /* Products */,
 			);
@@ -88,7 +99,12 @@
 				939B053A16A4EF3B00768FC5 /* ViewController.h */,
 				939B053B16A4EF3B00768FC5 /* ViewController.m */,
 				939B053D16A4EF3B00768FC5 /* ViewController.xib */,
-				939B052916A4EF3B00768FC5 /* Supporting Files */,
+				93C83CED16A84BEE001C5CD6 /* EditViewController.h */,
+				93C83CEE16A84BEE001C5CD6 /* EditViewController.m */,
+				93C83CEF16A84BEE001C5CD6 /* EditViewController.xib */,
+				93C83D0416A8CDD6001C5CD6 /* Person.h */,
+				93C83D0516A8CDD6001C5CD6 /* Person.m */,
+				93C83CFB16A8CC8A001C5CD6 /* Model.xcdatamodeld */,
 			);
 			path = MMTables;
 			sourceTree = "<group>";
@@ -105,6 +121,7 @@
 				939B053816A4EF3B00768FC5 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = MMTables;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +180,7 @@
 				939B053716A4EF3B00768FC5 /* Default@2x.png in Resources */,
 				939B053916A4EF3B00768FC5 /* Default-568h@2x.png in Resources */,
 				939B053F16A4EF3B00768FC5 /* ViewController.xib in Resources */,
+				93C83CF116A84BEE001C5CD6 /* EditViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +194,9 @@
 				939B052F16A4EF3B00768FC5 /* main.m in Sources */,
 				939B053316A4EF3B00768FC5 /* AppDelegate.m in Sources */,
 				939B053C16A4EF3B00768FC5 /* ViewController.m in Sources */,
+				93C83CF016A84BEE001C5CD6 /* EditViewController.m in Sources */,
+				93C83CFD16A8CC8A001C5CD6 /* Model.xcdatamodeld in Sources */,
+				93C83D0616A8CDD6001C5CD6 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +311,22 @@
 				939B054416A4EF3B00768FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		93C83CFB16A8CC8A001C5CD6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				93C83CFC16A8CC8A001C5CD6 /* Model.xcdatamodel */,
+			);
+			currentVersion = 93C83CFC16A8CC8A001C5CD6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 939B051516A4EF3B00768FC5 /* Project object */;
 }
