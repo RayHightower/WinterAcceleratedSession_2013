@@ -25,47 +25,51 @@
 
 - (void)viewDidLoad
 {
-    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilemakers.co/api/members.json"]];
     
     [super viewDidLoad];
     
 
-    /*[NSURLConnection sendAsynchronousRequest:urlRequest
-                                       queue:[NSOperationQueue currentQueue]
-                           completionHandler:
-     ^(NSURLResponse* response, NSData* data, NSError* error)
-     {
-         NSManagedObjectContext* context = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
-         Person* person;
-         NSError* sqlError;
-         
-         things = (NSArray*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-         [things retain];
-         
-         people = [NSMutableArray arrayWithCapacity:[things count]];
-         [people retain];
-         
-         for (NSDictionary* dict in things) {
-             person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"apiDataLoaded"]) {
+        NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilemakers.co/api/members.json"]];
+        
+        [NSURLConnection sendAsynchronousRequest:urlRequest
+                                           queue:[NSOperationQueue currentQueue]
+                               completionHandler:
+         ^(NSURLResponse* response, NSData* data, NSError* error)
+         {
+             NSManagedObjectContext* context = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+             Person* person;
+             NSError* sqlError;
              
-             person.name = [dict valueForKey:@"name"];
-             person.email = [dict valueForKey:@"email"];
-             [people addObject:person];
+             things = (NSArray*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+             [things retain];
              
-             if (![context save:&sqlError]) {
-                 NSLog(@"Failed!");
+             people = [NSMutableArray arrayWithCapacity:[things count]];
+             [people retain];
+             
+             for (NSDictionary* dict in things) {
+                 person = [NSEntityDescription insertNewObjectForEntityForName:@"Person" inManagedObjectContext:context];
+                 
+                 person.name = [dict valueForKey:@"name"];
+                 person.email = [dict valueForKey:@"email"];
+                 [people addObject:person];
+                 
+                 if (![context save:&sqlError]) {
+                     NSLog(@"Failed!");
+                 }
              }
-         }
-         
-         
-         
-         [myTableView reloadData];
-     }];*/
+             
+             
+             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"apiDataLoaded"];
+             [myTableView reloadData];
+         }];
+    }
+    else
+    {
+        people = [[((AppDelegate*)[[UIApplication sharedApplication] delegate]) allEntitiesForName:@"Person"] mutableCopy];
+        [people retain];
+    }
     
-    people = [[((AppDelegate*)[[UIApplication sharedApplication] delegate]) allEntitiesForName:@"Person"] mutableCopy];
-    [people retain];
-    NSLog(@"things = %@", things);
-
     
     /*//things = @[@"first", @"second", @"third", @"whatever", @"fouth", @"fifth", @"sixth"];
     things = [NSArray arrayWithObjects:@"first", @"second", @"third", @"whatever", @"fouth", @"fifth", @"sixth", nil];
