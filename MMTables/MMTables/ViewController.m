@@ -25,8 +25,6 @@
 
 - (void)viewDidLoad
 {
-    //[super viewDidLoad];
-    
     NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilemakers.co/api/members.json"]];
     
     [super viewDidLoad];
@@ -37,9 +35,9 @@
                            completionHandler:
      ^(NSURLResponse* response, NSData* data, NSError* error)
      {
+         NSManagedObjectContext* context = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
          Person* person;
          NSError* sqlError;
-         NSManagedObjectContext* context = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
          
          things = (NSArray*)[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
          [things retain];
@@ -79,6 +77,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark PersistantDelegate
+
+-(void)didSave
+{
+    [myTableView reloadData];
+}
+
 #pragma mark UITableViewDelegate
 
 
@@ -86,6 +91,7 @@
 {
     editViewController = [[EditViewController alloc] initWithNibName:nil bundle:nil];
     editViewController.person = (Person*)[people objectAtIndex:indexPath.row];
+    editViewController.delegate = self;
     
     [self.view addSubview:editViewController.view];
     NSLog(@"%@", [things objectAtIndex:indexPath.row]);

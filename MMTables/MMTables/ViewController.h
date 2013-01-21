@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersistantDelegate.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PersistantDelegate>
 
 @end

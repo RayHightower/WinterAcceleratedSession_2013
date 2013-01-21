@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Person.h"
+#import "PersistantDelegate.h"
 
 @interface EditViewController : UIViewController
 @property(retain, nonatomic)Person* person;
+@property(retain, nonatomic)id<PersistantDelegate>delegate;
 @end

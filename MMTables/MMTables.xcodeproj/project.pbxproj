@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9398724816ADE1E70077EA78 /* PersistantDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistantDelegate.h; sourceTree = "<group>"; };
 		939B051E16A4EF3B00768FC5 /* MMTables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMTables.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		939B052216A4EF3B00768FC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		939B052416A4EF3B00768FC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,6 +108,7 @@
 				93C83D0416A8CDD6001C5CD6 /* Person.h */,
 				93C83D0516A8CDD6001C5CD6 /* Person.m */,
 				93C83CFB16A8CC8A001C5CD6 /* Model.xcdatamodeld */,
+				9398724816ADE1E70077EA78 /* PersistantDelegate.h */,
 			);
 			path = MMTables;
 			sourceTree = "<group>";

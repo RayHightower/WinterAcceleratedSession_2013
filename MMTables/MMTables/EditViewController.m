@@ -7,6 +7,7 @@
 //
 
 #import "EditViewController.h"
+#import "AppDelegate.h"
 
 @interface EditViewController ()
 {
@@ -18,6 +19,7 @@
 @implementation EditViewController
 
 @synthesize person;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,7 +39,17 @@
 
 - (IBAction)save:(id)sender
 {
+    NSManagedObjectContext* context = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).managedObjectContext;
+    NSError* sqlError;
+
+    self.person.name = nameTextField.text;
+    self.person.email = emailTextField.text;
     
+    if (![context save:&sqlError]) {
+        NSLog(@"Failed!");
+    }
+    
+    [self.delegate didSave];
     [self.view removeFromSuperview];
 }
 
