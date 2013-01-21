@@ -32,8 +32,9 @@
 
 -(IBAction)pushed:(id)sender
 {
+    myTextField.text = @"Random text.";
     myLabel.text = myTextField.text;
-    [myLabel setText:[myTextField text]];
+    // [myLabel setText:[myTextField text]];
 }
 
 
