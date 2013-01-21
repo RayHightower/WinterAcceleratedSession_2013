@@ -37,7 +37,8 @@
 
 - (IBAction)save:(id)sender
 {
-    //save
+    
+    [self.view removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning
