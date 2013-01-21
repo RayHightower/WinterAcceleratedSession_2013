@@ -23,13 +23,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self __initCoreData];
+
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    [self __initCoreData];
     return YES;
 }
 
@@ -60,6 +61,29 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+-(NSArray*)allEntitiesForName:(NSString*)name
+{
+    NSEntityDescription* entityDescription = [NSEntityDescription entityForName:name inManagedObjectContext:m_managedObjectContext];
+	NSFetchRequest* fetchRequest = [[NSFetchRequest alloc] init];
+    NSFetchedResultsController* fetchedResultsController;
+    NSArray* sortDescriptors = [[NSArray alloc] initWithObjects:nil];
+    NSError* error;
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setEntity:entityDescription];
+    fetchedResultsController = [[[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                    managedObjectContext:m_managedObjectContext
+                                                                      sectionNameKeyPath:nil
+                                                                               cacheName:nil] autorelease];
+    [fetchedResultsController performFetch:&error];
+	[fetchRequest release];
+    
+	return fetchedResultsController.fetchedObjects;
+}
+
+
+
 -(void)__initCoreData
 {
     NSURL* documentsDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -80,5 +104,7 @@
         [m_managedObjectContext setPersistentStoreCoordinator:m_persistentStoreCoordinator];
     }
 }
+
+
 
 @end

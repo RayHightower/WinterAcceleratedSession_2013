@@ -16,9 +16,12 @@
     NSPersistentStoreCoordinator* m_persistentStoreCoordinator;
     NSManagedObjectContext* m_managedObjectContext;
     
+    
 }
 @property (readonly)NSManagedObjectContext* managedObjectContext;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) ViewController *viewController;
+
+-(NSArray*)allEntitiesForName:(NSString*)name;
 
 @end

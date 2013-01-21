@@ -30,7 +30,7 @@
     [super viewDidLoad];
     
 
-    [NSURLConnection sendAsynchronousRequest:urlRequest
+    /*[NSURLConnection sendAsynchronousRequest:urlRequest
                                        queue:[NSOperationQueue currentQueue]
                            completionHandler:
      ^(NSURLResponse* response, NSData* data, NSError* error)
@@ -60,7 +60,10 @@
          
          
          [myTableView reloadData];
-     }];
+     }];*/
+    
+    people = [[((AppDelegate*)[[UIApplication sharedApplication] delegate]) allEntitiesForName:@"Person"] mutableCopy];
+    [people retain];
     NSLog(@"things = %@", things);
 
     
@@ -106,7 +109,7 @@
 
 -(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [things count];
+    return [people count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,7 +124,7 @@
     }
     
     
-    tableViewCell.textLabel.text = [((NSDictionary*)[things objectAtIndex:indexPath.row]) valueForKey:@"name"];
+    tableViewCell.textLabel.text = [[people objectAtIndex:indexPath.row] name];
     return tableViewCell;
 }
 
