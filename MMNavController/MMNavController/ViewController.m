@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SecondViewController.h"
 
 @interface ViewController ()
 - (IBAction)showSecondViewController:(id)sender;
@@ -29,7 +30,10 @@
 
 - (IBAction)showSecondViewController:(id)sender
 {
-    // code goes hee
+    SecondViewController* secondViewController = [[SecondViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [self.navigationController pushViewController:secondViewController animated:YES];
+    
 }
 
 @end
