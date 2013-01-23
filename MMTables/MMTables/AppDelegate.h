@@ -15,7 +15,8 @@
     NSManagedObjectModel*   m_managedObjectModel;
     NSPersistentStoreCoordinator* m_persistentStoreCoordinator;
     NSManagedObjectContext* m_managedObjectContext;
-    
+
+    UINavigationController *navigationController;
     
 }
 @property (readonly)NSManagedObjectContext* managedObjectContext;

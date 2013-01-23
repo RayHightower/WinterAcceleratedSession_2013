@@ -27,7 +27,7 @@
 {
     
     [super viewDidLoad];
-    
+	self.title = @"Main ViewController";    
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"apiDataLoaded"]) {
         NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilemakers.co/api/members.json"]];
@@ -132,4 +132,13 @@
     return tableViewCell;
 }
 
+-(IBAction)showEditViewController:(id)sender
+{
+    EditViewController* reditViewController = [[EditViewController alloc] initWithNibName:nil bundle:nil];
+    
+    [self.navigationController pushViewController:reditViewController animated:YES];
+    
+    [reditViewController release];     // Good habit. Why?? So it doesn't hang around in memory.
+
+}
 @end

@@ -19,7 +19,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	self.title = @"1st ViewController";
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -33,6 +34,8 @@
     SecondViewController* secondViewController = [[SecondViewController alloc] initWithNibName:nil bundle:nil];
     
     [self.navigationController pushViewController:secondViewController animated:YES];
+    
+    [secondViewController release];     // Good habit. Why?? So it doesn't hang around in memory.
     
 }
 
